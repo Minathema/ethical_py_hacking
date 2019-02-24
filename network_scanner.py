@@ -1,15 +1,21 @@
 #!/usr/bin/env python
 
-import scapy.all as scapy
-import optparse
+'''This programm can also be ran using the optparse library which needs an
+argument "target" from the user as the IP range which the network
+scanner will scan. In the current state, the needed argument is already given
+in line 39. If one wants to run it using the optparse library, they need
+to un-comment all the lines and comment line 39.'''
 
-def get_argument():
-    parser = optparse.OptionParser()
-    parser.add_option("-t", "--target", dest = "target", help = "Target IP range to scan")
-    (options, argument) = parser.parse_args()
-    if not options.target:
-        parser.error("Please specify an IP range, use --help for more info.")
-    return options
+import scapy.all as scapy
+#import optparse
+
+#def get_argument():
+    #parser = optparse.OptionParser()
+    #parser.add_option("-t", "--target", dest = "target", help = "Target IP range to scan")
+    #(options, argument) = parser.parse_args()
+    #if not options.target:
+        #parser.error("Please specify an IP range using -t or --target followed by the target IP range, use --help for more info.")
+    #return options
 
 def scan(ip):
     arp_request = scapy.ARP(pdst = ip)
@@ -29,6 +35,7 @@ def print_result(results_list):
         print(client["ip"] + "\t\t" + client["mac"])
 
 
-options = get_argument()
-scan_result = scan(options.target)
+#options = get_argument()
+#scan_result = scan(options.target)
+scan_result = scan("10.0.2.1/24")
 print_result(scan_result)
