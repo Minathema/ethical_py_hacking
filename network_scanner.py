@@ -3,18 +3,18 @@
 '''This programm can also be ran using the optparse library which needs an
 argument "target" from the user as the IP range which the network
 scanner will scan. In the current state, the needed argument is already given
-in line 39. If one wants to run it using the optparse library, they need
-to un-comment all the lines and comment line 39.'''
+in line 40. If one wants to run it using the optparse library, they need
+to un-comment all the lines and comment line 40.'''
 
 import scapy.all as scapy
 #import optparse
 
 #def get_argument():
     #parser = optparse.OptionParser()
-    #parser.add_option("-t", "--target", dest = "target", help = "Target IP range to scan")
+    #parser.add_option("-t", "--target", dest = "target", help = "Target IP/IP range")
     #(options, argument) = parser.parse_args()
     #if not options.target:
-        #parser.error("Please specify an IP range using -t or --target followed by the target IP range, use --help for more info.")
+        #parser.error("Please specify an IP range using -t or --target followed by the target IP/IP range, use --help for more info.")
     #return options
 
 def scan(ip):
