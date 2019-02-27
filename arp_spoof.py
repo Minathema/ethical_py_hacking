@@ -1,8 +1,10 @@
 #!/usr/bin/env python
 
-'''To run this programm using Python3, un-comment line 42
-and comment lines 9, 43 and 44. This programm currently runs in older
+'''To run this programm using Python3, un-comment line 44
+and comment lines 11, 45 and 46. This programm currently runs in older
 versions of Python.'''
+
+#need to input  echo 1 > /proc/sys/net/ipv4/ip_forward  in the terminal for the data to flow through
 
 import scapy.all as scapy
 import time
@@ -46,4 +48,4 @@ try:
 except KeyboardInterrupt:
     print("\n[-] Detected CTRL + C ... Resetting ARP tables ... Please wait.\n")
     restore(target_ip, gateway_ip)
-    restore(target_ip, gateway_ip)
+    restore(gateway_ip, target_ip)
